@@ -1,0 +1,21 @@
+{
+  "source_donnees": {
+    "donnees_brutes": [
+      { "feature_1": 10, "feature_2": 1, "target": "A" },
+      { "feature_1": 20, "feature_2": 2, "target": "B" },
+      { "feature_1": 30, "feature_2": 3, "target": "A" },
+      { "feature_1": 40, "feature_2": 4, "target": "B" }
+    ]
+  },
+  "parametres_reduction": {
+    "methode": "umap",
+    "n_components": 2,
+    "color_by_col": "target",
+    "n_neighbors": 2,
+    "min_dist": 0.1
+  },
+  "parametres_nettoyage": {
+    "supprimer_doublons": true,
+    "supprimer_lignes_na": false
+  }
+}

@@ -1,0 +1,36 @@
+id,nom,age,revenu,revenu,ville,score_satisfaction,inscription,commentaire,depenses,active
+1,Jean,28,45000,45000,Lomé,8,2023-01-05,"Bon client",32000,True
+2,Alice,35,52000,52000,Kara,9,2022/12/15,"Rien à signaler",40000,True
+3,Michel,,61000,61000,Atakpamé,7,2021-11-03,"NULL",,False
+4,Sylvie,22,NaN,NaN,Lomé,,2023-03-10,"Très satisfaite",12000,True
+5,Serge,41,-5000,-5000,Sokodé,3,2020-07-01,"Erreur de données",80000,False
+6,Aïcha,29,72000,72000,Lomé,10,2023/06/20,"Client fidèle",50000,True
+7,Benoit,58,85000,85000,Kpalimé,6,2021-01-30,"RAS",65000,True
+8,Maria,NaN,NaN,NaN,,5,2022-10-02,"",15000,True
+9,Jean,28,45000,45000,Lomé,8,2023-01-05,"Bon client",32000,True
+10,Pauline,33,1000000000,1000000000,Tsévié,10,03-03-2024,"Valeur extrême",100000000,True
+11,Koffi,25,38000,38000,Kpalimé,4,2021/15/05,"Date invalide",21000,False
+12,Jean-Pierre,39,NaN,NaN,Lomé,9,2022-05-30,"",,True
+13,Julien,27,43000,43000,Kara,8,2023-07-25,"A tester",27000,True
+14,Amé,30,52000,52000,Lomé,9,2022-10-01," Client fidèle ",38000,True
+15,?,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN
+16,Claire,45,75000,75000,Atakpamé,7,2020-12-12,"",60000,False
+17,Luc,38,62000,62000,Sokodé,6,202
+1-08-08,"Client moyen",45000,True
+18,Sophie,29,58000,58000,Lomé,8,2023-04-14,"Très bonne expérience",39000,True
+19,David,NaN,NaN,NaN,Kara,,2021-09-09,"",,False
+20,Emma,31,67000,67000,Lomé,9,2022-11-11,"",48000,True
+21,Lucas,27,41000,41000,Atakpamé,5,2023-02-20,"Client occasionnel",25000,True
+22,Chloé,34,59000,59000,Sokodé,7,2021-06-15,"",42000,False
+23,Maxime,29,53000,53000,Lomé,8,2022-08-22,"Bon rapport qualité-prix",36000,True
+24,Laura,26,48000,48000,Kara,6,2023-
+01-30,"",30000,True
+25,Thomas,40,72000,72000,Lomé,9,2020-05-05,"Client fidèle",55000,True
+26,Julie,33,60000,60000,Atakpamé,7,2021-03-03,"",43000,False
+27,Antoine,NaN,NaN,NaN,Sokodé,,2022-12-12,"",,True
+28,Elodie,28,45000,45000,Lomé,8,2023-01-05,"Bon client",32000,True
+29,Nicolas,36,68000,68000,Kara,9,2022-09-09,"Très satisfait",50000,True
+30,Marine,31,59000,59000,Lomé,7,2021-11-11,"",41000,False
+31,Alexandre,42,80000,80000,Atakpamé,6,2020-10-10,"Client moyen",62000,True
+32,Inès,25,39000,39000,Sokodé,5,2023-05-05,"",23000,True
+33,Victor,38,65000,65000,Lomé,8,2022-07-07,"Bon service",47000,True

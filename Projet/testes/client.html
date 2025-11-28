@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Client API - Visualisation 2D & 3D</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f3f3f3;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        textarea {
+            width: 100%;
+            height: 120px;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: solid 1px #aaa;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Client Test API – Visualisation 2D & 3D</h1>
+
+<div class="card">
+    <h3>1. Importer un fichier CSV</h3>
+    <input type="file" id="fichier">
+</div>
+
+<div class="card">
+    <h3>2. Paramètres de visualisation</h3>
+
+    <label>Méthode:</label>
+    <select id="methode">
+        <option value="acp">ACP</option>
+        <option value="tsne">t-SNE</option>
+        <option value="umap">UMAP</option>
+        <option value="auto">AUTO (sélection automatique)</option>
+    </select>
+
+    <br><br>
+    <label>Mode :</label>
+    <select id="dim">
+        <option value="2">2D</option>
+        <option value="3">3D</option>
+    </select>
+
+    <br><br>
+
+    <label>Paramètres JSON :</label>
+    <textarea id="jsonParams">
+{
+  "colonne_couleur": "age",
+  "titre": "Visualisation 2D ou 3D",
+  "perplexite": 5,
+  "n_voisins": 10,
+  "dist_min": 0.1
+}
+    </textarea>
+</div>
+
+<div class="card">
+    <h3>3. Envoyer la requête</h3>
+    <button onclick="envoyer()">Générer Visualisation</button>
+</div>
+
+<div class="card">
+    <h3>Résultat API</h3>
+    <div id="result"></div>
+    <iframe id="preview"></iframe>
+</div>
+
+<script>
+async function envoyer() {
+    const fichier = document.getElementById("fichier").files[0];
+    if (!fichier) {
+        alert("Veuillez sélectionner un fichier CSV.");
+        return;
+    }
+
+    const methode = document.getElementById("methode").value;
+    const dim = document.getElementById("dim").value;
+    const jsonParams = document.getElementById("jsonParams").value;
+
+    let url = "http://127.0.0.1:8000/reduire-visualiser-" + (dim === "3" ? "3d" : "2d");
+
+    const formData = new FormData();
+    formData.append("methode", methode);
+    formData.append("fichier", fichier);
+    formData.append("parametres_json", jsonParams);
+
+    const response = await fetch(url, {
+        method: "POST",
+        body: formData
+    });
+    if (!response.ok) {
+        const text = await response.text();
+        document.getElementById("result").innerHTML =
+            "<b>Erreur HTTP:</b> " + response.status + "<pre>" + text + "</pre>";
+        return;
+    }
+
+    const data = await response.json();
+
+    // Affichage JSON brut
+    document.getElementById("result").innerHTML =
+        "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+
+    // Affichage dans iframe
+    if (data.contenu_html) {
+        const iframe = document.getElementById("preview");
+        const blob = new Blob([data.contenu_html], { type: "text/html" });
+        iframe.src = URL.createObjectURL(blob);
+    }
+    
+}
+</script>
+
+</body>
+</html>
